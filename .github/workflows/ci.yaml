@@ -40,9 +40,9 @@ jobs:
         echo "Files changed: $changedFiles"
         NON_MD_FILES=$(echo "$changedFiles" | grep -v '\.md$' || true)
         if [ -n "$NON_MD_FILES" ]; then
-          echo "non_doc_files_changed=true" >> $GITHUB_ENV
+          echo "non_doc_files_changed=true" >> $GITHUB_OUTPUT
         else
-          echo "non_doc_files_changed=false" >> $GITHUB_ENV
+          echo "non_doc_files_changed=false" >> $GITHUB_OUTPUT
         fi
   ci:
     name: CI
