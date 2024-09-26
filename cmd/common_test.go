@@ -14,7 +14,6 @@ type mockExecs struct {
 	logger *log.Logger
 }
 
-// test
 func newMockExecs() *mockExecs {
 	m := &mockExecs{}
 	return m

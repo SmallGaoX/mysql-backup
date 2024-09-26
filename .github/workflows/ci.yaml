@@ -31,6 +31,8 @@ jobs:
         fetch-depth: ${{ github.event_name == 'pull_request' && 2 || 0 }}
     - id: fileschanged
       run: |
+        set -x
+        export
         case '${{ github.event_name }}' in
           push)
             firstCommit='${{ github.event.commits[0].id }}'
