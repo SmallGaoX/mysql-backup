@@ -6,7 +6,7 @@ if [[ -n "$DB_DUMP_DEBUG" ]]; then
   set -x
 fi
 
-# get all variables from environment variables or files (e.g. VARIABLE_NAME_FILE)
+# get all variables from environment variables or files (e.g. VARIABLE_NAME_FILE) twat
 # (setting defaults happens here, too)
 file_env "DB_SERVER"
 file_env "DB_PORT"
