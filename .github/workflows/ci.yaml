@@ -32,6 +32,7 @@ jobs:
     - name: fileschanged
       id: fileschanged
       run: |
+        # test
         firstCommit='${{ github.event.before }}'
         lastCommit='${{ github.event.after }}'
         changedFiles=$(git diff --name-only --diff-filter=d "${firstCommit}" "${lastCommit}")
