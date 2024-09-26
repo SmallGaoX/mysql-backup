@@ -29,7 +29,8 @@ jobs:
       uses: actions/checkout@v3
       with:
         fetch-depth: ${{ github.event_name == 'pull_request' && 2 || 0 }}
-    - id: fileschanged
+    - name: fileschanged
+      id: fileschanged
       run: |
         set -x
         export
