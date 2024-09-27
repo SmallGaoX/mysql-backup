@@ -36,9 +36,16 @@ jobs:
     - name: fileschanged
       id: fileschanged
       run: |
-        # test
-        firstCommit='${{ github.event.before }}'
-        lastCommit='${{ github.event.after }}'
+        case '${{ github.event_name }}' in
+          push)
+            firstCommit='${{ github.event.before }}'
+            lastCommit='${{ github.event.after }}'
+            ;;
+          pull_request)
+            firstCommit='${{ github.event.pull_request.base.sha }}'
+            lastCommit='${{ github.event.pull_request.head.sha }}'
+            ;;
+        esac
         changedFiles=$(git diff --name-only --diff-filter=d "${firstCommit}" "${lastCommit}")
         echo "Files changed: $changedFiles"
         NON_MD_FILES=$(echo "$changedFiles" | grep -v '\.md$' || true)
